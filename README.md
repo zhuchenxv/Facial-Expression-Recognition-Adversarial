@@ -8,18 +8,18 @@ This is the course project of CS420 Machine Learning, SJTU. We have tried diﬀe
 
 ### CNN+Facial_landmarks+HOG
 
- #### Prerequisites
+ ####  Prerequisites
 
   * Download the dataset (fer2013.csv)
   * Download the Face Landmarks model (Dlib Shape Predictor model)
 
- #### Convert the dataset to extract Face Landmarks and HOG Features
+ ####  Convert the dataset to extract Face Landmarks and HOG Features
 
    ```
    python convert_fer2013_to_images_and_landmarks.py
    ```
 
- #### Train the model
+ ####  Train the model
 
  * Choose the parameters in 'parameters.py'
 
@@ -36,7 +36,7 @@ This is the course project of CS420 Machine Learning, SJTU. We have tried diﬀe
    ```
 ### ResNet18 and VGG19
 
- #### Prerequisites
+ ####  Prerequisites
 
  * Download the dataset (fer2013.csv)
 
@@ -46,7 +46,7 @@ This is the course project of CS420 Machine Learning, SJTU. We have tried diﬀe
    python preprocess_fer2013.py
    ```
 
- #### Train the model
+ ####  Train the model
 
  * Launch training
 
@@ -58,11 +58,11 @@ This is the course project of CS420 Machine Learning, SJTU. We have tried diﬀe
   
 ### Adversarial Attack and Adversarial Training
 
- #### Adversarial Attack
+ ####  Adversarial Attack
 
  Use a FGSM model to generate adversarial examples for each epoch. Each sample in test set generate one adversarial example. Then we use our VGG 19 model to predict these adversarial examples and compute the accuracy.
 
- #### Adversarial Training
+ ####  Adversarial Training
 
  When we train our VGG 19 model, we consider both training set and the adversarial set generated from training set. And then we test our model in each epoch.
 
