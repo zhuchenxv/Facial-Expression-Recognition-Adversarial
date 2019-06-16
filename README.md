@@ -15,6 +15,16 @@ This is the course project of CS420 Machine Learning, SJTU. We have tried diﬀe
 
 #### Convert the dataset to extract Face Landmarks and HOG Features
 
-* ```
+  ```
   python convert_fer2013_to_images_and_landmarks.py
+  ```
+
+#### Train the model
+
+* Choose the parameters in 'parameters.py'
+
+* Launch training
+
+  ```
+  python train.py --train=yes
   ```
