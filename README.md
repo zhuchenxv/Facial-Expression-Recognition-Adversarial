@@ -12,3 +12,9 @@ This is the course project of CS420 Machine Learning, SJTU. We have tried diﬀe
 
 * Download the dataset (fer2013.csv)
 * Download the Face Landmarks model (Dlib Shape Predictor model)
+
+#### Convert the dataset to extract Face Landmarks and HOG Features
+
+* ```
+  python convert_fer2013_to_images_and_landmarks.py
+  ```
