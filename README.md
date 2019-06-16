@@ -56,7 +56,7 @@ This is the course project of CS420 Machine Learning, SJTU. We have tried diﬀe
 
   You can also use different parameters incluing model (VGG19, ResNet18), batch size and learning rate.
   
-  ### Adversarial Attack and Adversarial Training
+### Adversarial Attack and Adversarial Training
 
 #### Adversarial Attack
 
