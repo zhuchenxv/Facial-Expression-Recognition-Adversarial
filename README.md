@@ -8,10 +8,10 @@ This is the course project of CS420 Machine Learning, SJTU. We have tried diﬀe
 
 ### CNN+Facial_landmarks+HOG
 
-#### Prerequisites
+#### * Prerequisites
 
-* Download the dataset (fer2013.csv)
-* Download the Face Landmarks model (Dlib Shape Predictor model)
+  * Download the dataset (fer2013.csv)
+  * Download the Face Landmarks model (Dlib Shape Predictor model)
 
 #### Convert the dataset to extract Face Landmarks and HOG Features
 
