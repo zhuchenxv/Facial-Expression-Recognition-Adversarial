@@ -23,6 +23,12 @@ This is the course project of CS420 Machine Learning, SJTU. We have tried diﬀe
 
 * Choose the parameters in 'parameters.py'
 
+* Optimize training hyperparameters.
+
+  ```
+  python optimize_hyperparams.py --max_evals=20
+  ```
+
 * Launch training
 
   ```
