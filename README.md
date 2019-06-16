@@ -70,15 +70,22 @@ When we train our VGG 19 model, we consider both training set and the adversaria
 
 ### CNN+Facial_landmarks+HOG
 
-![image-20190617005114786](/Users/wanghuayu/Library/Application Support/typora-user-images/image-20190617005114786.png)
+* Accuracy of CNN
+  Public test: 71.74%; Private test: 72.80%
 
 ### ResNet18 and VGG19
 
-![image-20190617005129729](/Users/wanghuayu/Library/Application Support/typora-user-images/image-20190617005129729.png)
+* Accuracy of ResNet18
+  Public test: 58.72%; Private test: 60.85%
+* Accuracy of VGG19
+  Public test: 70.74%; Private test: 73.11%
 
 ### Adversarial Examples without Adversarial Training
 
-![image-20190617005202000](/Users/wanghuayu/Library/Application Support/typora-user-images/image-20190617005202000.png)
+* Accuracy without adversarial training
+  Normal Example: 69.88%; Adversarial Example: 21.12%
+* Accuracy with adversarial training
+  Normal Example: 66.76%; Adversarial Example: 33.60%  
 
 ## Contributors
 
