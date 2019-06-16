@@ -65,3 +65,22 @@ Use a FGSM model to generate adversarial examples for each epoch. Each sample in
 #### Adversarial Training
 
 When we train our VGG 19 model, we consider both training set and the adversarial set generated from training set. And then we test our model in each epoch.
+
+## Results
+
+### CNN+Facial_landmarks+HOG
+
+![image-20190617005114786](/Users/wanghuayu/Library/Application Support/typora-user-images/image-20190617005114786.png)
+
+### ResNet18 and VGG19
+
+![image-20190617005129729](/Users/wanghuayu/Library/Application Support/typora-user-images/image-20190617005129729.png)
+
+### Adversarial Examples without Adversarial Training
+
+![image-20190617005202000](/Users/wanghuayu/Library/Application Support/typora-user-images/image-20190617005202000.png)
+
+## Contributors
+
+* Chenxv Zhu
+* Huayu Wang
