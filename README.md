@@ -34,3 +34,24 @@ This is the course project of CS420 Machine Learning, SJTU. We have tried diﬀe
   ```
   python train.py --train=yes
   ```
+### ResNet18 and VGG19
+
+#### Prerequisites
+
+* Download the dataset (fer2013.csv)
+
+* Preprocess the data
+
+  ```
+  python preprocess_fer2013.py
+  ```
+
+#### Train the model
+
+* Launch training
+
+  ```
+  python mainpro_FER.py --model VGG19 --bs 128 --lr 0.01
+  ```
+
+  You can also use different parameters incluing model (VGG19, ResNet18), batch size and learning rate.
