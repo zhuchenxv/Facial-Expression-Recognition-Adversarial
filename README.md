@@ -55,3 +55,13 @@ This is the course project of CS420 Machine Learning, SJTU. We have tried diﬀe
   ```
 
   You can also use different parameters incluing model (VGG19, ResNet18), batch size and learning rate.
+  
+  ### Adversarial Attack and Adversarial Training
+
+#### Adversarial Attack
+
+Use a FGSM model to generate adversarial examples for each epoch. Each sample in test set generate one adversarial example. Then we use our VGG 19 model to predict these adversarial examples and compute the accuracy.
+
+#### Adversarial Training
+
+When we train our VGG 19 model, we consider both training set and the adversarial set generated from training set. And then we test our model in each epoch.
