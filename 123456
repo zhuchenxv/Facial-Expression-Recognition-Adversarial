@@ -8,16 +8,16 @@ import time
 rand_seed = 999
 np.random.seed(rand_seed)
 
-n_sample = 1000
+n_sample = 100000
 n_feature = 50
 target_people = 100000
 
 
-learning_rate = 0.001
-batch_size = 128
+learning_rate = 0.0001
+batch_size = 64
 epoch = 500
-n_hidden_layer1 = 5
-n_hidden_layer2 = 4
+n_hidden_layer1 = 40
+n_hidden_layer2 = 24
 
 start = time.clock()
 
@@ -32,7 +32,6 @@ train_X_ = np.concatenate((usr, crowd))
 train_X = np.reshape(train_X_, (-1, batch_size, n_feature))
 train_Y_ = np.concatenate((usr_label, crowd_label))
 train_Y = np.reshape(train_Y_, (-1, batch_size, 1))
-
 
 test_X = np.random.uniform(0, 0.5, (target_people, n_feature))
 test_X = np.concatenate((train_X_[:5][:], test_X))
@@ -65,7 +64,7 @@ with tf.Session() as sess:
             input_y = train_Y[idx]
             sess.run(train_step, feed_dict = {x: input_x, y_: input_y})
             
-        if i % 100 == 0:
+        if i % 5 == 0:
             total_cross_entropy = sess.run(cross_entropy,feed_dict={x: train_X_, y_: train_Y_})
             print("Epoch: %d, loss: %f" % (i, total_cross_entropy))
                   
