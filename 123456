@@ -1,0 +1,78 @@
+import tensorflow as tf
+import numpy as np
+import time
+
+
+rand_seed = 999
+np.random.seed(rand_seed)
+
+n_sample = 100000
+n_feature = 5000
+target_people = 10000000
+
+
+learning_rate = 0.001
+epoch = 500
+n_hidden_layer1 = 5
+n_hidden_layer2 = 4
+
+usr = np.random.uniform(0.5, 1, (n_sample, n_feature))
+usr_label = np.ones((n_sample, 1), np.float32)
+crowd = np.random.uniform(0, 0.5, (n_sample, n_feature))
+crowd_label = np.zeros((n_sample, 1), np.float32)
+
+train_X = np.concatenate((usr, crowd))
+train_Y = np.concatenate((usr_label, crowd_label))
+
+
+test_X = np.random.uniform(0, 0.5, (target_people, n_feature))
+test_X = np.concatenate((train_X[:5][:], test_X))
+
+
+w1 = tf.Variable(tf.random_normal([n_feature, n_hidden_layer1], stddev = 1, seed = 1))
+b1 = tf.Variable(tf.random_normal([n_hidden_layer1], stddev = 1, seed = 1))
+w2 = tf.Variable(tf.random_normal([n_hidden_layer1, n_hidden_layer2], stddev = 1, seed = 1))
+b2 = tf.Variable(tf.random_normal([n_hidden_layer2], stddev = 1, seed = 1))
+w3 = tf.Variable(tf.random_normal([n_hidden_layer2, 1], stddev = 1, seed = 1))
+b3 = tf.Variable(tf.random_normal([1], stddev = 1, seed = 1))
+
+x = tf.placeholder(tf.float32, shape = (None, n_feature), name = "x-input")
+y_ = tf.placeholder(tf.float32, shape = (None, 1), name = "y-input")
+
+y = tf.nn.sigmoid(tf.matmul(x, w1) + b1)
+y = tf.nn.sigmoid(tf.matmul(y, w2) + b2)
+y = tf.nn.softmax(tf.matmul(y, w3) + b3)
+
+cross_entropy = -tf.reduce_mean(y_ * tf.log(tf.clip_by_value(y, 1e-10, 1.0)) + (1 - y_) * tf.log(tf.clip_by_value(1 - y, 1e-10, 1.0)))
+train_step = tf.train.AdamOptimizer(learning_rate).minimize(cross_entropy)
+
+start = time.clock()
+
+with tf.Session() as sess:
+    init = tf.initialize_all_variables()
+    sess.run(init)
+    
+    for i in range(epoch):
+        for (input_x, input_y) in zip(train_X, train_Y):
+            input_x = np.reshape(input_x, (1, n_feature))
+            input_y = np.reshape(input_y, (1, 1))
+            sess.run(train_step, feed_dict = {x: input_x, y_: input_y})
+            
+        if i % 100 == 0:
+            total_cross_entropy = sess.run(cross_entropy,feed_dict={x: train_X, y_: train_Y})
+            print("Epoch: %d, loss: %f" % (i, total_cross_entropy))
+                  
+            
+    pred_Y = sess.run(y, feed_dict = {x: test_X})
+    pred_Y = pred_Y.tolist()
+    
+    res = {}
+    for index, item in enumerate(pred_Y):
+        res[index] = item
+    list1 = sorted(res.items(), key = lambda x:x[1], reverse = True)        
+
+    print(list1[:1000])
+
+end = time.clock()
+
+print("Running time: %s seconds"%(end - start))
